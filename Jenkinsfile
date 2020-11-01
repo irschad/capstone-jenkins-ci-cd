@@ -15,8 +15,8 @@ pipeline {
 
     stage('Push docker image') {
       steps {
-        sh '''docker tag capnew irschad/capnew
-docker push irschad/capnew'''
+        sh '''docker tag capnew irschad/capsnew
+docker push irschad/capsnew'''
       }
     }
 
