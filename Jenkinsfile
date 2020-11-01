@@ -15,12 +15,11 @@ pipeline {
 
     stage('Push docker image') {
       steps {
-        sh ''' withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-docker tag capsnew irschad/capsnew
+        sh '''docker tag capsnew irschad/capsnew
 docker push irschad/capsnew
-}'''
-        }
+'''
       }
-
     }
+
   }
+}
