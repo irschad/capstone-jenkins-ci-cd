@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capsnew
+  labels:
+    app: capsnew
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: capsnew
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: capsnew
+    spec:
+      containers:
+        - image: irschad/capsnew
+          imagePullPolicy: Always
+          name: capsnew
+          ports:
+            - containerPort: 80
