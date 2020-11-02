@@ -21,6 +21,18 @@ pipeline {
          }
       }
     }
+    stage('Deploy the container'){
+      steps {
+         withAWS(region:'us-east-1',credentials:'aws') {
+            sh "aws eks --region us-east-1 update-kubeconfig --name capsnewjen"  
+            sh "kubectl apply -f deployment.yml"
+            sh "kubectl get nodes"
+            sh "kubectl get deployment"
+            sh "kubectl get pod -o wide"
+            sh "kubectl get service/capsnew"			                
+         }
+      }
+    }    
 
   }
 }
