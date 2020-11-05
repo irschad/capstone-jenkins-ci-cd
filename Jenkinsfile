@@ -9,15 +9,15 @@ pipeline {
 
     stage('Build docker image') {
       steps {
-        sh 'docker build --tag=capsnew .'
+        sh 'docker build --tag=udanew .'
       }
     }
 
     stage('Push docker image') {
       steps {
          withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-            sh "docker tag capsnew irschad/capsnew"
-            sh "docker push irschad/capsnew"
+            sh "docker tag udanew irschad/udanew"
+            sh "docker push irschad/udanew"
          }
       }
     }
