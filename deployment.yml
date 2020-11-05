@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: capsnew
+  name: udajen
   labels:
-    app: capsnew
+    app: udajen
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: capsnew
+      app: udajen
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,11 +18,11 @@ spec:
   template:
     metadata:
       labels:
-        app: capsnew
+        app: udajen
     spec:
       containers:
-        - image: irschad/capsnew
+        - image: irschad/udajen
           imagePullPolicy: Always
-          name: capsnew
+          name: udajen
           ports:
             - containerPort: 80
