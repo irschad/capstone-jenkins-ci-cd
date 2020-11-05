@@ -26,4 +26,17 @@ spec:
           name: udanew
           command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
           ports:
-            - containerPort: 80
+            - containerPort: 5000
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: udanew
+spec:
+  selector:
+    app: udanew
+  ports:
+  - protocol: TCP
+    port: 6000
+    targetPort: 5000
+  type: LoadBalancer
