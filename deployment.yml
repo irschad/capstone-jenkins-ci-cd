@@ -24,5 +24,6 @@ spec:
         - image: irschad/udanew
           imagePullPolicy: Always
           name: udanew
+          command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
           ports:
             - containerPort: 80
