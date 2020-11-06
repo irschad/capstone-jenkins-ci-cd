@@ -21,7 +21,7 @@ spec:
         app: udanew
     spec:
       containers:
-        - image: irschad/udanew
+        - image: irschad/udanew:latest
           imagePullPolicy: Always
           name: udanew
           command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
