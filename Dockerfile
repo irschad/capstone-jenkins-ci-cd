@@ -19,8 +19,9 @@ RUN apt-get -y install \
     libpng-dev \
 
 #Download corpora
-# hadolint ingore=DL4006
+#hadolint ignore=DL4006
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+#hadolint ignore=DL4006
 RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3
 
 # Expose port 5000
