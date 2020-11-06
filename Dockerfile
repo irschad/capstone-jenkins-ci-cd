@@ -4,12 +4,11 @@ WORKDIR /app
 	
 COPY . app.py /app/
 
-#Install dependencies
-#hadolint ignore=DL3008,DL3015
-
 #Install requirements
+#hadolint ignore=DL3008,DL3015
 RUN python -m pip3 install --trusted-host pypi.python.org -r requirements.txt
 
+#hadolint ignore=DL3008,DL3015
 RUN apt-get -y install \
     python3-pip \
     python-dev \
@@ -20,6 +19,7 @@ RUN apt-get -y install \
     libpng-dev \
 
 #Download corpora
+# hadolint ingore=DL4006
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3
 
