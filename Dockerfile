@@ -8,7 +8,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 #Install dependencies
 #hadolint ignore=DL3008,DL3015
-RUN sudo apt-get -y install --no-cache \
+RUN apt-get -y install --no-cache \
     python3-pip \
     python-dev \
     libxml2-dev \
