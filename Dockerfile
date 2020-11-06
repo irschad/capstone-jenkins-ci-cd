@@ -4,11 +4,9 @@ WORKDIR /app
 	
 COPY . app.py /app/
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
 #Install dependencies
 #hadolint ignore=DL3008,DL3015
-RUN apt-get -y install \
+RUN set -o pipefail && apt-get -y install \
     python3-pip \
     python-dev \
     libxml2-dev \
