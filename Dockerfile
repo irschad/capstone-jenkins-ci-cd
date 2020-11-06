@@ -8,19 +8,7 @@ COPY . app.py /app/
 #hadolint ignore=DL3008,DL3015
 RUN python -m pip install --trusted-host pypi.python.org -r requirements.txt
 
-#hadolint ignore=DL3008,DL3015
-RUN apt-get -y install \
-    python3-pip \
-    python-dev \
-    libxml2-dev \
-    libxslt-dev \
-    libjpeg-dev \
-    zlib1g-dev \
-    libpng-dev \
-
 #Download corpora
-
-#hadolint ignore=DL4006
 RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py
 
 # Expose port 5000
