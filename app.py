@@ -1,9 +1,8 @@
-from flask import Flask
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Hello from Python!"
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+import newspaper
+bbc_paper = newspaper.build('https://www.bbc.com/news', memoize_articles=False)
+first_article = bbc_paper.articles[1]
+first_article.download()
+first_article.parse()
+print(first_article.title)
+first_article.nlp()
+print(first_article.summary)
