@@ -4,7 +4,7 @@ WORKDIR /app
 	
 COPY . app.py /app/
 
-SHELL ["/bin/sh", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 #Install dependencies
 #hadolint ignore=DL3008,DL3015
