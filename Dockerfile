@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . app.py /app/
 
 #Install dependencies
-#hadolint ignore=DL3008,DL3015
+#hadolint ignore=DL3008,DL3015,DL4006
 RUN apt-get -y install \
     python3-pip \
     python-dev \
