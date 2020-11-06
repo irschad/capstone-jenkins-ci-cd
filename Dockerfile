@@ -6,6 +6,10 @@ COPY . app.py /app/
 
 #Install dependencies
 #hadolint ignore=DL3008,DL3015
+
+#Install requirements
+RUN python -m pip3 install --trusted-host pypi.python.org -r requirements.txt
+
 RUN apt-get -y install \
     python3-pip \
     python-dev \
@@ -14,9 +18,6 @@ RUN apt-get -y install \
     libjpeg-dev \
     zlib1g-dev \
     libpng-dev \
-
-#Install requirements
-RUN python -m pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 #Download corpora
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
