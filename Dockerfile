@@ -6,7 +6,7 @@ COPY . app.py /app/
 
 #Install requirements
 #hadolint ignore=DL3008,DL3015
-RUN python -m pip3 install --trusted-host pypi.python.org -r requirements.txt
+RUN python -m pip install --trusted-host pypi.python.org -r requirements.txt
 
 #hadolint ignore=DL3008,DL3015
 RUN apt-get -y install \
