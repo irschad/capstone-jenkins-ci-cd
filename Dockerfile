@@ -7,7 +7,7 @@ COPY . app.py /app/
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 #Install dependencies
-hadolint ignore=DL3008,DL3015
+#hadolint ignore=DL3008,DL3015
 RUN sudo apt-get -y install --no-cache \
     python3-pip \
     python-dev \
