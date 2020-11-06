@@ -21,7 +21,7 @@ RUN apt-get -y install \
 #Download corpora
 
 #hadolint ignore=DL4006
-RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3
+RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py
 
 # Expose port 5000
 EXPOSE 5000
