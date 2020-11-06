@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . app.py /app/
 
 #Install dependencies
-RUN apt-get install --no-cache \
+RUN sudo apt-get install --no-cache \
     python3-pip \
     python-dev \
     libxml2-dev \
