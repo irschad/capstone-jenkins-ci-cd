@@ -6,7 +6,7 @@ COPY . app.py /app/
 
 #Install dependencies
 #hadolint ignore=DL3008,DL3015
-RUN set -o pipefail && apt-get -y install \
+RUN apt-get -y install \
     python3-pip \
     python-dev \
     libxml2-dev \
@@ -19,7 +19,7 @@ RUN set -o pipefail && apt-get -y install \
 RUN python -m pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 #Download corpora
-RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3
+RUN ["/bin/bash", "-c", "set -o pipefail && curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3"]
 
 # Expose port 5000
 EXPOSE 5000
