@@ -8,6 +8,9 @@ COPY . app.py /app/
 #hadolint ignore=DL3008,DL3015
 RUN python -m pip install --trusted-host pypi.python.org -r requirements.txt
 
+#hadolint ignore=DL3008,DL3015
+RUN python -m nltk.downloader punkt
+
 #Download corpora
 RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py
 
